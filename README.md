@@ -6,7 +6,7 @@ detection, OpenCV preprocessing, character segmentation, and a PyTorch
 EfficientNet-B0 classifier for Arabic letters and digits.
 
 <p align="center">
-   <img src="pipeline_report_images/plate_detection_sample.jpg" alt="Egyptian vehicle with detected license plate" width="720">
+   <img src="github/01-input-car-detected.jpeg" alt="Egyptian vehicle with detected license plate" width="720">
 </p>
 
 <p align="center">
@@ -50,23 +50,34 @@ Character segmentation uses a local YOLO character checkpoint when available;
 otherwise it falls back to OpenCV contour processing. The classifier applies
 several test-time image variants to improve robustness.
 
-## Visual results
+## Demo results
 
-<p align="center">
-   <img src="pipeline_report_images/figure4_pipeline.png" alt="Technical pipeline for Egyptian license plate recognition" width="760">
-</p>
+The following images show the system from input to final recognition:
 
-<p align="center">
-   <img src="pipeline_report_images/figure6_segmentation_combined.png" alt="Character segmentation examples" width="760">
-</p>
+<table>
+   <tr>
+      <td align="center" width="50%"><strong>1. Input and plate detection</strong><br><img src="github/01-input-car-detected.jpeg" alt="Input car with detected plate" width="100%"></td>
+      <td align="center" width="50%"><strong>2. Cropped license plate</strong><br><img src="github/02-plate-crop.jpeg" alt="Cropped Egyptian license plate" width="100%"></td>
+   </tr>
+   <tr>
+      <td align="center"><strong>3. Character detection</strong><br><img src="github/03-character-detections.jpeg" alt="Character detection examples" width="100%"></td>
+      <td align="center"><strong>4. Final web application</strong><br><img src="github/04-web-interface-result.jpeg" alt="EALPR web interface with recognition result" width="100%"></td>
+   </tr>
+</table>
 
-<p align="center">
-   <img src="pipeline_report_images/figure7_accuracy_comparison.png" alt="Character accuracy comparison across CNN architectures" width="760">
-</p>
+## Training evidence
 
-The visuals above are evaluation and demonstration artifacts included with the
-project. They are intended to explain the approach and show representative
-results, not to replace a reproducible benchmark on a newly downloaded test set.
+These figures document the data distribution and YOLO training behavior:
+
+<table>
+   <tr>
+      <td align="center" width="50%"><strong>Dataset distribution</strong><br><img src="github/06-dataset-distribution.jpeg" alt="Character dataset distribution" width="100%"></td>
+      <td align="center" width="50%"><strong>Training metrics</strong><br><img src="github/05-training-metrics.jpeg" alt="YOLO training and validation metrics" width="100%"></td>
+   </tr>
+</table>
+
+The original technical figures and evaluation visuals are also available in
+[`pipeline_report_images/`](pipeline_report_images/).
 
 ## Repository layout
 
