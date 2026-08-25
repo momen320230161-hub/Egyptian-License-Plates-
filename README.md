@@ -5,6 +5,32 @@ vehicle license plates. It combines a Flask web application, YOLOv8 plate
 detection, OpenCV preprocessing, character segmentation, and a PyTorch
 EfficientNet-B0 classifier for Arabic letters and digits.
 
+<p align="center">
+   <img src="pipeline_report_images/plate_detection_sample.jpg" alt="Egyptian vehicle with detected license plate" width="720">
+</p>
+
+<p align="center">
+   <strong>Detect plates. Segment characters. Recognize Egyptian Arabic letters and digits.</strong>
+</p>
+
+<p align="center">
+   <a href="https://github.com/momen320230161-hub/Egyptian-License-Plates-/stargazers"><img src="https://img.shields.io/github/stars/momen320230161-hub/Egyptian-License-Plates-?style=flat-square" alt="GitHub stars"></a>
+   <a href="https://github.com/momen320230161-hub/Egyptian-License-Plates-/commits/main"><img src="https://img.shields.io/github/last-commit/momen320230161-hub/Egyptian-License-Plates-?style=flat-square" alt="Last commit"></a>
+   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.10 or newer">
+   <img src="https://img.shields.io/badge/YOLOv8-Ultralytics-111F68?style=flat-square" alt="YOLOv8">
+</p>
+
+## At a glance
+
+| Capability | Implementation |
+| --- | --- |
+| Plate localization | YOLOv8 object detection |
+| Character segmentation | YOLO character detector with OpenCV contour fallback |
+| Character recognition | EfficientNet-B0 with PyTorch |
+| Image processing | OpenCV, adaptive thresholding, CLAHE, and test-time augmentation |
+| User interface | Flask backend with responsive bilingual frontend |
+| Integration | JSON API with Base64-encoded result images |
+
 ## Overview
 
 The system accepts a vehicle image through a bilingual web interface and
@@ -23,6 +49,24 @@ Input image -> YOLOv8 plate detection -> plate crop and preprocessing
 Character segmentation uses a local YOLO character checkpoint when available;
 otherwise it falls back to OpenCV contour processing. The classifier applies
 several test-time image variants to improve robustness.
+
+## Visual results
+
+<p align="center">
+   <img src="pipeline_report_images/figure4_pipeline.png" alt="Technical pipeline for Egyptian license plate recognition" width="760">
+</p>
+
+<p align="center">
+   <img src="pipeline_report_images/figure6_segmentation_combined.png" alt="Character segmentation examples" width="760">
+</p>
+
+<p align="center">
+   <img src="pipeline_report_images/figure7_accuracy_comparison.png" alt="Character accuracy comparison across CNN architectures" width="760">
+</p>
+
+The visuals above are evaluation and demonstration artifacts included with the
+project. They are intended to explain the approach and show representative
+results, not to replace a reproducible benchmark on a newly downloaded test set.
 
 ## Repository layout
 
