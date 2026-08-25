@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyptian ALPR | نظام التعرف على اللوحات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h1>EALPR System</h1>
+            </div>
+            <h2>نظام التعرف الآلي على لوحات السيارات المصرية - مرحلة التقييم</h2>
+        </header>
+
+        <main class="main-content">
+            <!-- Error Message -->
+            <div id="error-message" class="error-message hidden">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span id="error-text">حدث خطأ</span>
+            </div>
+
+            <div class="academic-grid">
+                
+                <!-- Box 1: Upload (Always visible, changes state) -->
+                <div class="card box-upload" id="upload-section">
+                    <div class="card-header">
+                        <h3>1. إدخال الصورة (Input)</h3>
+                    </div>
+                    <div class="upload-area" id="drop-zone">
+                        <input type="file" id="file-input" accept="image/*" hidden>
+                        <i class="fa-solid fa-file-arrow-up upload-icon"></i>
+                        <h4>اسحب وأفلت الصورة هنا</h4>
+                        <button class="btn btn-primary mt-2" onclick="document.getElementById('file-input').click()">تصفح ملفاتك</button>
+                    </div>
+                    <!-- Spinner for processing -->
+                    <div id="loading-spinner" class="spinner-container hidden">
+                        <div class="spinner"></div>
+                        <p>جاري المعالجة...</p>
+                    </div>
+                    <!-- Preview of selected image (Original Image) -->
+                    <div id="preview-container" class="hidden">
+                        <div class="image-wrapper">
+                            <img id="result-original-img" src="" alt="Original Image" class="preview-img">
+                        </div>
+                        <button class="btn btn-secondary w-100 mt-2" id="reset-btn">تغيير الصورة</button>
+                    </div>
+                </div>
+
+                <!-- Box 2: YOLO Detection -->
+                <div class="card box-yolo" id="yolo-section">
+                    <div class="card-header">
+                        <h3>2. اكتشاف اللوحة (YOLO)</h3>
+                    </div>
+                    <div class="result-placeholder" id="yolo-placeholder">
+                        <i class="fa-solid fa-crop-simple"></i>
+                        <p>في انتظار الصورة...</p>
+                    </div>
+                    <div class="result-content hidden" id="yolo-result">
+                        <div class="image-wrapper crop-wrapper">
+                            <img id="result-crop-img" src="" alt="Cropped Plate">
+                        </div>
+                        <div class="stat-badge mt-4">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span class="stat-label">الدقة (Confidence): </span>
+                            <span class="stat-value" id="result-confidence">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 3: CNN Recognition -->
+                <div class="card box-cnn" id="cnn-section">
+                    <div class="card-header">
+                        <h3>3. التعرف على الحروف (CNN)</h3>
+                    </div>
+                    <div class="result-placeholder" id="cnn-placeholder">
+                        <i class="fa-solid fa-font"></i>
+                        <p>في انتظار اللوحة...</p>
+                    </div>
+                    <div class="result-content hidden" id="cnn-result">
+                        <div class="plate-number-display" id="result-plate-number"></div>
+                        <div class="stat-badge mt-4">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <span class="stat-label">زمن التنفيذ (Time): </span>
+                            <span class="stat-value" id="result-time">0 ms</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

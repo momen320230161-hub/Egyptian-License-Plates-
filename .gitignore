@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Uploaded files and generated outputs
+static/uploads/*
+!static/uploads/.gitkeep
+ealpr_app/test_*.jpg
+ealpr_app/segmentation_test.jpg
+results/
+runs/
+scratch/
+temp_docx_extract/
+docs/temp_report.zip
+extracted_doc.txt
+
+# Training datasets and generated image/label collections
+Characters/
+real_yolo_characters_dataset/
+Egyptian License Plates Dataset/
+phase2/yolo_project/
+phase2/yolo_pro_training/
+
+# Training artifacts and duplicate checkpoints
+archive/
+phase2/models/
+phase2/yolov8n.pt
+models/*.pt
+models/*.pth
+models/*.npy
+
+# Keep only the inference assets used by ealpr_app/pipeline.py
+!models/efficientnet_b0_master.pth
+!ealpr_app/models/
+!ealpr_app/models/*.pt
+!ealpr_app/models/*.pth
+ealpr_app/models/cnn_char.pth
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/

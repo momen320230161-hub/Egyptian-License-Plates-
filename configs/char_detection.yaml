@@ -1,0 +1,32 @@
+
+path: C:\Users\moman\Desktop\Egyptian License Plates\YOLO_Char_Dataset
+train: images
+val: images
+
+names:
+  0: '1'
+  1: '2'
+  2: '3'
+  3: '4'
+  4: '5'
+  5: '6'
+  6: '7'
+  7: '8'
+  8: '9'
+  9: 'ain'
+  10: 'alef'
+  11: 'ba'
+  12: 'dal'
+  13: 'fa'
+  14: 'ha'
+  15: 'jeem'
+  16: 'lam'
+  17: 'meem'
+  18: 'noon'
+  19: 'qaf'
+  20: 'ra'
+  21: 'sad'
+  22: 'seen'
+  23: 'ta'
+  24: 'waw'
+  25: 'ya'

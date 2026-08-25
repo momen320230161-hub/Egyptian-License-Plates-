@@ -1,0 +1,6 @@
+path: C:\Users\moman\Desktop\Egyptian License Plates\real_yolo_characters_dataset
+train: images
+val: images
+
+names:
+  0: 'character'
